@@ -1,0 +1,126 @@
+<!DOCTYPE .HTML>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="calculadora.css">
+		<title> Calculadora JQ </title>
+		
+	</head>
+	
+<!-- <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script> -->
+
+
+
+
+
+<body>
+			<h1> Mi Calculadora </h1>
+			<div id="startButton"><button id="open">Start</button> </div> 
+
+			<div class="calculadora-full " > <!-- Aca va toda la calculadora -->
+				<div class="pantalla "> <!-- Aca va Pantalla -->
+					<div class="screenbox"></div>
+				</div>
+
+				<div class="numerosYescritura"> <!-- Numeros y escritura-->
+					<div class="input"> <!-- escritura -->
+						
+						<div class="box"> <input class="typebox" type="text" value="click a number">      </div>
+
+							
+						
+					</div>
+
+					<div class="numeros-container" > <!-- Numeros -->
+						<div class="numeros-box">
+							<div class="numeros button2">7</div>
+							<div class="numeros button2">8</div>
+							<div class="numeros button2">9</div>
+							<div class="numeros2 button">/</div>
+						</div>
+						<div class="numeros-box">
+							<div class="numeros button2">4</div>
+							<div class="numeros button2">5</div>
+							<div class="numeros button2">6</div>
+							<div class="numeros2 button">x</div>
+								
+							
+						</div>
+						<div class="numeros-box">
+							<div class="numeros button2">1</div>
+							<div class="numeros button2">2</div>
+							<div class="numeros button2">3</div>
+							<div class="numeros2 button">-</div>
+								
+							
+						</div>
+						<div  class="numeros-box ">
+							<div class="numeros2 button">=</div>
+							<div class="numeros button2">0</div>
+							<div class="numeros2 button">AC</div>
+							<div class="numeros2 button">+</div>
+							
+							
+								
+							</div>
+						</div>
+							
+						
+					</div>
+
+
+
+
+
+			</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
+
+<script>
+
+$(document).ready(function(){
+        
+
+
+       $(".calculadora-full").toggle()
+
+
+       $("#open").on("click",function(){
+       $(".calculadora-full").slideToggle(500);
+    }).on("click",function(){
+       $("#open").slideToggle(100);
+    })
+    	
+    	
+        $( ".numeros" ).click(function() {
+  		var text = $( this ).text();
+  		return $( "input" ).val( text );
+		});
+
+
+
+       $( ".numeros2" ).click(function() {
+  		var text = $( this ).text();
+  		$( "input" ).val( text );
+		});
+
+       
+
+
+
+    });
+							
+
+
+
+
+
+
+</script>
+
+		
+	</body>
+	<footer>
+		
+	</footer>
+</html>
