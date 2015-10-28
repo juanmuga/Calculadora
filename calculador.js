@@ -11,10 +11,10 @@ $(document).ready(function(){
        $(".calculadora-full").slideToggle(500);
     }).on("click",function(){
        $("#open").slideToggle(100);
-    })
+    });
     	
     	
-        $( ".numeros" ).click(function() {
+      /*  $( ".numeros" ).click(function() {
   		var text = $( this ).text();
   		return $( "input" ).val( text );
 		});
@@ -24,16 +24,98 @@ $(document).ready(function(){
        $( ".numeros2" ).click(function() {
   		var text = $( this ).text();
   		$( "input" ).val( text );
-		});
+		}); */
+	
 
-       
+	// VARIABLES
+	var count = "";
+	var count2 = "";
+	var resultado=""; 
+	var esSegundo = false;
+	var esSuma = false;
+	var esResta = false;
+	var esDivision=false;
+	var esMultiplicar=false;
 
 
+	// EVENTO TOMO NUMERO Y IMPRIMO EN box
+$(".numeros").click (function(){
+	  if(esSegundo){
+	  		count2 += $(this).text();
+			$(".box").text(count2);
+	  }else{
+		  	count += $(this).text();
+			$(".box").text(count);
+	}});
+     
 
-    });
-							
+
+     // OPERACIONES LAS DEJO LATENTES
+$(".suma").click (function(){
+		esSegundo = true;
+ 		esSuma = true;
+});
+$(".resta").click (function(){
+		esSegundo = true;
+ 		esResta = true;
+});
+$(".dividir").click (function(){
+		esSegundo = true;
+ 		esDivision = true;
+});
+$(".multiplicar").click (function(){
+		esSegundo = true;
+ 		esMultiplicar = true;
+});
+$(".borrar").click (function(){
+ 		count = "";
+		count2 = "";
+		resultado=""; 
+		esSegundo = false;
+		esSuma = false;
+		esResta = false;
+		esDivision=false;
+		esMultiplicar=false;
+		$(".visor").text("0");
+
+});
 
 
+// RESULTADO FINAL EN PANTALLA DE TODAS LAS OPERACIONES
+$(".igual").click (function(){
+	var num1=Number(count);
+	var num2=Number(count2);
+
+	if (esSuma){
+		resultado=num1+num2;
+	}
+ 	if (esResta) {
+ 		resultado=num1-num2;
+ 	}
+ 	if (esDivision) {
+ 		resultado=num1/num2;
+ 	}
+ 	if (esMultiplicar) {
+ 		resultado=num1*num2;
+ 	}  
+
+    
+
+// IMPRIMO EN PANTALLA
+$(".screenbox").text(resultado);
+
+count = "";
+count2 = "";
+resultado=""; 
+esSegundo = false;
+esSuma = false;
+esResta = false;
+esDivision=false;
+esMultiplicar=false;
+
+});
+
+});
 
 
 
