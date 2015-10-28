@@ -36,13 +36,13 @@
 							<div class="numeros button2">7</div>
 							<div class="numeros button2">8</div>
 							<div class="numeros button2">9</div>
-							<div class="numeros2 button">/</div>
+							<div class="accion button dividir">/</div>
 						</div>
 						<div class="numeros-box">
 							<div class="numeros button2">4</div>
 							<div class="numeros button2">5</div>
 							<div class="numeros button2">6</div>
-							<div class="numeros2 button">x</div>
+							<div class="accion button multiplicar">x</div>
 								
 							
 						</div>
@@ -50,15 +50,15 @@
 							<div class="numeros button2">1</div>
 							<div class="numeros button2">2</div>
 							<div class="numeros button2">3</div>
-							<div class="numeros2 button">-</div>
+							<div class="accion button restar">-</div>
 								
 							
 						</div>
 						<div  class="numeros-box ">
-							<div class="numeros2 button">=</div>
+							<div class="accion button igual">=</div>
 							<div class="numeros button2">0</div>
-							<div class="numeros2 button">AC</div>
-							<div class="numeros2 button">+</div>
+							<div class="accion button borrar">AC</div>
+							<div class="accion button sumar">+</div>
 							
 							
 								
@@ -74,49 +74,12 @@
 
 			</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> 
-
-<script>
-
-$(document).ready(function(){
-        
+	
 
 
-       $(".calculadora-full").toggle()
+<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="calculador.js"></script>
 
-
-       $("#open").on("click",function(){
-       $(".calculadora-full").slideToggle(500);
-    }).on("click",function(){
-       $("#open").slideToggle(100);
-    })
-    	
-    	
-        $( ".numeros" ).click(function() {
-  		var text = $( this ).text();
-  		return $( "input" ).val( text );
-		});
-
-
-
-       $( ".numeros2" ).click(function() {
-  		var text = $( this ).text();
-  		$( "input" ).val( text );
-		});
-
-       
-
-
-
-    });
-							
-
-
-
-
-
-
-</script>
 
 		
 	</body>

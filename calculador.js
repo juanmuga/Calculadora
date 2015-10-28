@@ -1,3 +1,49 @@
+
+
+$(document).ready(function(){
+        
+
+
+       $(".calculadora-full").toggle()
+
+
+       $("#open").on("click",function(){
+       $(".calculadora-full").slideToggle(500);
+    }).on("click",function(){
+       $("#open").slideToggle(100);
+    })
+    	
+    	
+        $( ".numeros" ).click(function() {
+  		var text = $( this ).text();
+  		return $( "input" ).val( text );
+		});
+
+
+
+       $( ".numeros2" ).click(function() {
+  		var text = $( this ).text();
+  		$( "input" ).val( text );
+		});
+
+       
+
+
+
+    });
+							
+
+
+
+
+
+
+
+
+--------------------------------------------------------------------------
+
+
+
  var calculadora = function() {if(confirm("Quieres Sumar?")) {
 
 								var x = prompt("Cual es el Primer numero?");
@@ -142,7 +188,7 @@ var calculadora = function() {
        
 };
 
-};
+}; */
 
 
 
