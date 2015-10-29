@@ -30,8 +30,10 @@ $(document).ready(function(){
 	// VARIABLES
 	var count = "";
 	var count2 = "";
-	var resultado=""; 
+	
 	var esSegundo = false;
+	var sigoOperando = false;
+
 	var esSuma = false;
 	var esResta = false;
 	var esDivision=false;
@@ -39,11 +41,12 @@ $(document).ready(function(){
 
 
 	// EVENTO TOMO NUMERO Y IMPRIMO EN box
-$(".numeros").click (function(){
+$(".numeros").click(function(){
 	  if(esSegundo){
+	  		/*count2 = "";*/
 	  		count2 += $(this).text();
-			$(".box").text(count2);
-	  }else{
+			$(".box").text(count2);  
+	  } else{
 		  	count += $(this).text();
 			$(".box").text(count);
 	}});
@@ -51,39 +54,86 @@ $(".numeros").click (function(){
 
 
      // OPERACIONES LAS DEJO LATENTES
-$(".suma").click (function(){
+$(".suma").click(function(){ 
 		esSegundo = true;
  		esSuma = true;
+ 		esResta = false;
+		esDivision=false;
+		esMultiplicar=false;
+
+		
+
+ 		$(".box").text("+");  
+ 		if(sigoOperando && count2){
+			calcular();
+		} 
+
+
 });
-$(".resta").click (function(){
+$(".resta").click(function(){
 		esSegundo = true;
  		esResta = true;
+ 		esSuma = false;
+ 		esDivision=false;
+		esMultiplicar=false; 
+				sigoOperando = true;
+
+ 		$(".box").text("-");
+ 		if(sigoOperando && count2){
+			calcular();
+		}
 });
-$(".dividir").click (function(){
+$(".dividir").click(function(){
 		esSegundo = true;
  		esDivision = true;
+ 		esResta = false;
+ 		esSuma = false;
+ 		esMultiplicar=false;
+ 				sigoOperando = true;
+
+ 		$(".box").text("/");
+ 		if(sigoOperando && count2){
+				calcular();
+			}
 });
-$(".multiplicar").click (function(){
+$(".multiplicar").click(function(){
 		esSegundo = true;
  		esMultiplicar = true;
+ 		esDivision = false;
+ 		esResta = false;
+ 		esSuma = false;
+ 				sigoOperando = true;
+
+ 		$(".box").text("x");
+ 		if(sigoOperando && count2){
+				calcular();
+		}
 });
-$(".borrar").click (function(){
+$(".borrar").click(function(){
  		count = "";
 		count2 = "";
 		resultado=""; 
-		esSegundo = false;
+		esSegundo = false; 
+		sigoOperando = false;
 		esSuma = false;
 		esResta = false;
 		esDivision=false;
 		esMultiplicar=false;
-		$(".visor").text("0");
-
+		$(".box").text(" ");
+		$(".screenbox").text(" ");
+		if(sigoOperando){
+				calcular();
+		}
 });
 
 
 // RESULTADO FINAL EN PANTALLA DE TODAS LAS OPERACIONES
 $(".igual").click (function(){
-	var num1=Number(count);
+   calcular(); 
+}); 
+
+function calcular(){
+   var num1=Number(count);
 	var num2=Number(count2);
 
 	if (esSuma){
@@ -99,21 +149,19 @@ $(".igual").click (function(){
  		resultado=num1*num2;
  	}  
 
-    
-
 // IMPRIMO EN PANTALLA
 $(".screenbox").text(resultado);
 
-count = "";
+count = resultado;
+sigoOperando = true;
 count2 = "";
 resultado=""; 
-esSegundo = false;
 esSuma = false;
 esResta = false;
 esDivision=false;
 esMultiplicar=false;
 
-});
+}
 
 });
 
